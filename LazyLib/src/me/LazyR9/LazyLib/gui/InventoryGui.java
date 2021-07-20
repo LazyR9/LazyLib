@@ -114,8 +114,7 @@ public class InventoryGui implements Listener {
 				try {
 					annotation = method.getAnnotation(ButtonClickHandler.class);
 				} catch (Exception e) {
-					// Method should exist,
-					// is an interface method that must be overridden
+					// Annotation should exist, we just checked for it.
 					e.printStackTrace();
 					// Don't continue executing if something happens,
 					// the annotation variable will not have a value and errors will happen!
