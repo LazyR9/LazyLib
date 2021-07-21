@@ -2,6 +2,7 @@ package me.LazyR9.LazyLib.gui;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -83,6 +84,18 @@ public class InventoryGui implements Listener {
 	public void addButton(ItemStack button, int slot) {
 		this.inv.setItem(slot, button);
 		buttons.add(button);
+	}
+	
+	/**
+	 * Adds multiple buttons to an inventory, starting at the first free spot.
+	 * Use addButton() to set the slot that a button will go in.
+	 * 
+	 * @param buttons The buttons to add to the
+	 * @see #addButton(ItemStack, int) addButton()
+	 */
+	public void addButtons(ItemStack... buttons) {
+		this.inv.addItem(buttons);
+		this.buttons.addAll(Arrays.asList(buttons));
 	}
 
 	@EventHandler
