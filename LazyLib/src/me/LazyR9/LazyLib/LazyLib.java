@@ -55,7 +55,11 @@ public class LazyLib {
 		if (!fileName.endsWith(".yml")) {
 			throw new IllegalArgumentException("File must be a .yml file");
 		}
-		File[] files = plugin.getDataFolder().listFiles(new FilenameFilter() {
+		File folder = plugin.getDataFolder();
+		if (!folder.exists()) {
+			throw new FileNotFoundException("This plugin does not have its own data folder!");
+		}
+		File[] files = folder.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
 				return name == fileName;
