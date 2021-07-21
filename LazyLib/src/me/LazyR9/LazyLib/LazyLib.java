@@ -62,7 +62,7 @@ public class LazyLib {
 		File[] files = folder.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
-				return name == fileName;
+				return name.equals(fileName);
 			}
 		});
 		if (files.length == 0) {
