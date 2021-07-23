@@ -23,6 +23,8 @@ import me.LazyR9.LazyLib.Utils;
  * @author LazyR9
  */
 public class InventoryGui implements Listener {
+	
+	private JavaPlugin plugin;
 
 	private Inventory inv;
 	private List<ItemStack> buttons = new ArrayList<ItemStack>();
