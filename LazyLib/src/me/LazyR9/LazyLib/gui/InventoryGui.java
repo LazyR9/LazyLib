@@ -140,8 +140,11 @@ public class InventoryGui implements Listener {
 						annotation.type() == Material.AIR) {
 					try {
 						method.invoke(listener, event);
+					} catch (IllegalAccessException e) {
+						// This error could be users fault
+						plugin.getLogger().warning("Skipping " + method.getName() + ": Method is private.");
 					} catch (Exception e) {
-						// Again, no errors should happen, but just in case...
+						// No other errors should happen, but print stack trace if they do.
 						e.printStackTrace();
 					}
 				}
