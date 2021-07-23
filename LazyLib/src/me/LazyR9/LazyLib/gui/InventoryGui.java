@@ -108,13 +108,18 @@ public class InventoryGui implements Listener {
 		if (event.getInventory() != this.inv) {
 			return;
 		}
+		// Cancel the event, so the item isn't picked up
+		// This can be uncancelled from the listener if this is wanted.
+		event.setCancelled(true);
+		// Make sure that the item clicked isn't in the player's inventory
+		// Otherwise they can "make" their own buttons if they have access to the /data command.
+		if (event.getClickedInventory() != this.inv) {
+			return;
+		}
 		// If the item clicked isn't registered as a button
 		if (!buttons.contains(event.getCurrentItem())) {
 			return;
 		}
-		// Cancel the event, so the item isn't picked up
-		// This can be uncancelled from the listener if this is wanted.
-		event.setCancelled(true);
 		// Call all listeners, notifying them of the event.
 		for (GuiListener listener : listeners) {
 			Method[] methods = listener.getClass().getDeclaredMethods();
