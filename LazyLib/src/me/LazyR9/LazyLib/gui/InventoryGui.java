@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -154,6 +155,40 @@ public class InventoryGui implements Listener {
 						// No other errors should happen, but print stack trace if they do.
 						e.printStackTrace();
 					}
+				}
+			}
+		}
+	}
+	
+	@EventHandler
+	private void onInventoryClose(InventoryCloseEvent event) {
+		// Make sure we are dealing with a player
+		if (!(event.getPlayer() instanceof Player)) {
+			return;
+		}
+		// Make sure we are dealing with our inventory
+		if (event.getInventory() != this.inv) {
+			return;
+		}
+		// Call all listeners
+		for (GuiListener listener : listeners) {
+			// Get all methods from the listener
+			Method[] methods = listener.getClass().getDeclaredMethods();
+			// Go through all methods
+			for (Method method : methods) {
+				// If the method isn't annotated, skip it
+				if (!method.isAnnotationPresent(GuiCloseHandler.class)) {
+					continue;
+				}
+				// Annotation exists, call listener
+				try {
+					method.invoke(listener, event);
+				} catch (IllegalAccessException e) {
+					// Error would be caused by user, so show a helpful error message
+					plugin.getLogger().warning("Skipping " + method.getName() + ": Method is private.");
+				} catch (Exception e) {
+					// Any other errors just get printed, no other errors should happen.
+					e.printStackTrace();
 				}
 			}
 		}
