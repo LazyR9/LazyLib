@@ -1,4 +1,4 @@
-package me.LazyR9.LazyLib;
+package me.lazyr9.lazylib;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * This class contains non-static helper methods
  * 
  * @author LazyR9
- * @see me.LazyR9.LazyLib.Utils Static methods
+ * @see me.lazyr9.lazylib.Utils Static methods
  */
 public class LazyLib {
 	

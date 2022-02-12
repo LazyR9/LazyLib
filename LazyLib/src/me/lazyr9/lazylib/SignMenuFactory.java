@@ -1,4 +1,4 @@
-package me.LazyR9.LazyLib;
+package me.lazyr9.lazylib;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;

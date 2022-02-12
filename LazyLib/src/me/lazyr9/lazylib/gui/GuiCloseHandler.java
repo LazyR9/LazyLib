@@ -1,4 +1,4 @@
-package me.LazyR9.LazyLib.gui;
+package me.lazyr9.lazylib.gui;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

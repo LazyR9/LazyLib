@@ -1,4 +1,4 @@
-package me.LazyR9.LazyLib;
+package me.lazyr9.lazylib;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

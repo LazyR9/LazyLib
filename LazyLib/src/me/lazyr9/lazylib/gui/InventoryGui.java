@@ -1,4 +1,4 @@
-package me.LazyR9.LazyLib.gui;
+package me.lazyr9.lazylib.gui;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.LazyR9.LazyLib.Utils;
+import me.lazyr9.lazylib.Utils;
 
 /**
  * Represents a GUI in a Minecraft inventory.

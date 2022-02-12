@@ -1,4 +1,4 @@
-package me.LazyR9.LazyLib.gui;
+package me.lazyr9.lazylib.gui;
 
 /**
  * Listeners for a GUI represented by an inventory.
