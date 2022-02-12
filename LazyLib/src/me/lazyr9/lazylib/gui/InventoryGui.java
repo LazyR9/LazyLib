@@ -146,13 +146,10 @@ public class InventoryGui implements Listener {
 				// call the event.
 				if (annotation.type() == event.getCurrentItem().getType() ||
 						annotation.type() == Material.AIR) {
+					method.setAccessible(true);
 					try {
 						method.invoke(listener, event);
-					} catch (IllegalAccessException e) {
-						// This error could be users fault
-						plugin.getLogger().warning("Skipping " + method.getName() + ": Method is private.");
 					} catch (Exception e) {
-						// No other errors should happen, but print stack trace if they do.
 						e.printStackTrace();
 					}
 				}
@@ -181,13 +178,10 @@ public class InventoryGui implements Listener {
 					continue;
 				}
 				// Annotation exists, call listener
+				method.setAccessible(true);
 				try {
 					method.invoke(listener, event);
-				} catch (IllegalAccessException e) {
-					// Error would be caused by user, so show a helpful error message
-					plugin.getLogger().warning("Skipping " + method.getName() + ": Method is private.");
 				} catch (Exception e) {
-					// Any other errors just get printed, no other errors should happen.
 					e.printStackTrace();
 				}
 			}
