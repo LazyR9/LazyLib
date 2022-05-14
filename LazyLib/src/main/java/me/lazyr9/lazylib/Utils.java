@@ -15,7 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
  * @see LazyLib Non-static methods
  */
 public final class Utils {
-	
+
 	/**
 	 * Format a message to use in chat.
 	 * Will use {@link String#format(String, Object...) String.format()},
@@ -31,8 +31,6 @@ public final class Utils {
 		if (message == null) {
 			return null;
 		}
-		// Apply the reset to make sure that formatting is apply properly.
-		// Without it everything is italicized.
 		return ChatColor.translateAlternateColorCodes('&', String.format(message, args));
 	}
 	

@@ -1,6 +1,6 @@
 name: LazyLib
 version: 1.0
 author: LazyR9
-main: me.LazyR9.LazyLib.Plugin
+main: me.lazyr9.lazylib.Plugin
 description: Library used by plugins made by LazyR9
 api-version: 1.17
